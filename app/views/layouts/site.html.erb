@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  
+    <%= stylesheet_link_tag    'application'%>
+    <%= stylesheet_link_tag    'site'%>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>TimeToAnswer</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <%= link_to 'Time to Answer', root_path, class:"navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav"></ul>
+
+        <%= form_with(url: site_search_path, local: true, method: :get, class:"form-inline") do |form| %>
+          <%= form.text_field :term, class:"form-control mr-sm-2", placeholder:"Search"  %>
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <% end %>
+
+        <ul class="nav navbar-nav justify-content-end">
+          <% unless user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to 'Log-in', new_user_session_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign-Up', new_user_registration_path, class:"nav-link" %>
+            </li>
+
+            <% else %>
+              <li class="nav-item dropdown"> 
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><%= current_user.email %> <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                      <%= link_to users_backoffice_welcome_index_path do %>
+                        <i class="fa fa-user fa-fw"></i>Perfil
+                      <% end %>
+                    </li>
+
+                    <li role="separator" class="divider "></li>
+
+                    <li class="dropdown-item">
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                        <i class="fa fa-sign-out fa-fw"></i>Logout
+                      <% end %>
+                    </li>
+                  </ul>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag 'application'%>
+    <%= javascript_include_tag 'site'%>
+
+    <% if notice %>
+      <%= javascript_tag do %>
+        $.bootstrapGrowl('<%= notice %>', {    
+        type: 'info', // (null, 'info', 'danger', 'success')
+        align: 'right', // ('left', 'right', or 'center')
+        allow_dismiss: true, // If true then will display a cross to close the popup.
+        stackup_spacing: 10 // spacing between consecutively stacked growls.
+        });
+      <% end %>
+    <% end %>
+  </body>
+</html>
+

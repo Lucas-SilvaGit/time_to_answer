@@ -1,0 +1,23 @@
+<h1>Seja bem vindo!</h1>
+
+<div class="row" style="display: inline-block;">
+  <div class="tile_count">
+    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12  tile_stats_count">
+      <span class="count_top"><i class="fa fa-comments-o"></i> Total Questions</span>
+      <div class="count"><%= @user_statistic.total_questions%></div>
+      <span class="count_bottom"><i class="green">4% </i> Total answers on last Week</span>
+    </div>
+    
+    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12  tile_stats_count">
+      <span class="count_top"><i class="fa fa-check-square-o"></i> Total Correct</span>
+      <div class="count"><%= @user_statistic.right_questions%></div>
+      <span class="count_bottom"><i class="green">4% </i> Total answers right on last Week</span>
+    </div>
+    
+    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12  tile_stats_count">
+      <span class="count_top"><i class="fa fa-close"></i> Total Wrong</span>
+      <div class="count"><%= @user_statistic.wrong_questions%></div>
+      <span class="count_bottom"><i class="green">4% </i> Total answers wrong on last Week</span>
+    </div>
+  </div>
+</div>

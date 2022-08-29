@@ -1,0 +1,11 @@
+'pt-BR':
+  messages:
+    listing: Listando %{model}
+    confirm_with: Você deseja realmente excluir a pergunta= [%{item}]
+    editing: Editando
+    new: Novo(a)
+    question_description: Descrição da Pergunta
+    question_subject: Assunto da Pergunta
+    subject_description: Descrição do Assunto
+  button_text:
+    submit: Enviar

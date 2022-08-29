@@ -1,0 +1,44 @@
+<div class="jumbotron">
+  <%= msg_jumbotron %>
+</div>
+
+<% @questions.each do |question|  %>
+  <%= form_with url: site_answer_path do |form| %>
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">
+          <span class="badge badge-secondary">
+            <%= link_to "#{question.subject.description} (#{question.subject.questions_count})", site_search_subject_path(question.subject_id, question.subject.description), style:"color: white;"%>
+          </span>
+          <%= question.description %>
+        </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <% question.answers.each do |answer| %>
+          <li style="list-style: none; margin-left:25px; margin-top:10px;">
+            <div class="radio"> 
+              <label>
+                <%= radio_button_tag 'answer_id', answer.id %>
+                <%= answer.description %>
+              </label>
+            </div>
+          </li>
+        <% end %>
+        <li style="list-style: none; margin-left:25px; margin-bottom:10px;">
+          <%= form.submit "Enviar", class:"btn btn-outline-primary", id: "submit_#{question.id}" %>
+        </li>
+      </ul>
+    </div>
+  <% end  %>
+<% end  %>
+
+<% if user_signed_in?%>
+  <div class="text-center">
+    <br>
+    <%= paginate @questions %>
+  </div>
+<% else%>
+  <div class="alert alert-warning" role="alert">
+    Efetue o login para continuar respondendo mais questões...
+  </div>
+<% end %>

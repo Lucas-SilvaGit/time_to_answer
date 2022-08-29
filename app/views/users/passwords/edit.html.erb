@@ -1,0 +1,34 @@
+<div>
+  <a class="hiddenanchor" id="signin"></a>
+
+  <div class="login_wrapper">
+    <div class="animate form login_form">
+      <section class="login_content">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
+
+          <h1>Change your password</h1>
+          
+          <div>
+            <%= f.password_field :password, autofocus: true, placeholder:"New password", class:"form-control" %>
+          </div>
+
+          <div>
+            <%= f.password_field :password_confirmation, placeholder:"New password", class:"form-control" %>
+          </div>
+
+          <div>
+            <%= f.submit "Change my password", class:"btn btn-primary submit" %>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="separator">
+          </div>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</div>
+
