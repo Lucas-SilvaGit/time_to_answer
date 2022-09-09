@@ -36,23 +36,28 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'rails-i18n', '~> 5.1'
-gem 'devise'
-gem 'tty-spinner'
-gem 'faker'
-gem 'kaminari'
-gem 'kaminari-i18n'
-gem 'cocoon'
-
-gem 'prawn-rails'
-
-gem 'redis'
-gem 'hiredis'
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'rails-i18n', '~> 5.1'
+  gem 'devise'
+
+  gem 'tty-spinner'
+
+  gem 'faker'
+  gem 'kaminari'
+  gem 'kaminari-i18n'
+
+  gem 'cocoon'
+
+  gem 'prawn-rails'
+
+  gem 'redis'
+  gem 'hiredis'
+
+  gem 'rspec-rails'
+
 end
 
 group :development do
