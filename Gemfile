@@ -57,6 +57,9 @@ group :development, :test do
   gem 'hiredis'
 
   gem 'rspec-rails'
+  gem 'factory_girl'
+
+  gem 'trix'
 
 end
 

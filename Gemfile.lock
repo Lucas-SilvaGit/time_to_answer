@@ -85,6 +85,8 @@ GEM
     diff-lcs (1.5.0)
     erubi (1.10.0)
     execjs (2.8.1)
+    factory_girl (4.9.0)
+      activesupport (>= 3.0.0)
     faker (2.20.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
@@ -235,6 +237,8 @@ GEM
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    trix (0.10.1)
+      rails
     ttfunk (1.7.0)
     tty-cursor (0.7.1)
     tty-spinner (0.9.3)
@@ -267,6 +271,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   devise
+  factory_girl
   faker
   hiredis
   jbuilder (~> 2.5)
@@ -284,6 +289,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  trix
   tty-spinner
   tzinfo-data
   uglifier (>= 1.3.0)
