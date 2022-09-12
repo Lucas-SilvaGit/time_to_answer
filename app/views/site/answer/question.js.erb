@@ -1,10 +1,10 @@
-var element = document.getElementById('submit_<%= @answer.question_id %>');
+var element = document.getElementById('submit_<%= @question_id %>');
 
 element.classList.remove('btn-outline-primary');
 element.classList.remove('btn-outline-danger');
 
 
-if (<%= @answer.correct %>){
+if (<%= @correct %>){
   element.classList.add('btn-outline-success');
   $.bootstrapGrowl(' Meus Parabéns você acertou!', {    
         type: 'success', // (null, 'info', 'danger', 'success')
